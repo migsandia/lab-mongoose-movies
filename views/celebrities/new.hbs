@@ -1,0 +1,11 @@
+<form action="/celebrities/" method="POST">
+  Name:<input type="text" name="name" value="{{name}}">
+  Occupation:<input type="text" name="occupation" value="{{special}}">
+  Catch Phrase:<input type="text" name="catchPhrase" value="{{catchPhrase}}">
+  {{#if name}}
+  <input type="hidden" name="_id" value="{{_id}}">
+  <button type="submit">Edit celibrity</button>
+  {{else}}
+   <button type="submit">Create celebrity</button>
+  {{/if}}
+</form>
