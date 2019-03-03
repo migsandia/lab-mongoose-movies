@@ -39,6 +39,15 @@ router.post('/:id/delete', async (req, res, next) => {
     next(error)
   }
 })
+router.get('/:id/edit', async (req, res, next) => {
+  const { id } = req.params
+  try {
+    const celebrity = await Celebrity.findById(id)
+    res.render('celebrities/new', celebrity)
+  } catch (error) {
+    next(error)
+  }
+})
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params
   try {
