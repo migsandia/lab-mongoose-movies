@@ -30,6 +30,15 @@ router.post('/', async (req, res, next) => {
     res.redirect('/celebrities/new')
   }
 })
+router.post('/:id/delete', async (req, res, next) => {
+  const { id } = req.params
+  try {
+    await Celebrity.findByIdAndDelete(id)
+    res.redirect('/celebrities')
+  } catch (error) {
+    next(error)
+  }
+})
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params
   try {
@@ -39,4 +48,5 @@ router.get('/:id', async (req, res, next) => {
     next(error)
   }
 })
+
 module.exports = router
